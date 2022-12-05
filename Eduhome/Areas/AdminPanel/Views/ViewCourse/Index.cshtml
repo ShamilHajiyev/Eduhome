@@ -1,0 +1,38 @@
+﻿@{
+    ViewCourse viewCourse = Model;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">View Course</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Choose option</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@viewCourse.Title</td>
+                                    <td>@viewCourse.Description</td>
+                                    <td>@viewCourse.ChooseOption</td>
+                                    <td>
+                                        <a class="btn btn-primary" asp-action="details" asp-route-id="@viewCourse.Id">Details</a>
+                                        <a class="btn btn-success" asp-action="update" asp-route-id="@viewCourse.Id">Update</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

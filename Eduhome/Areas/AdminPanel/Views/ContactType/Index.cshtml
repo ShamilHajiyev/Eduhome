@@ -1,0 +1,58 @@
+﻿@{
+    List<ContactType> contactTypes = Model;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Contact Types</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Contact way</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in contactTypes)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.ContactWay</td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-action="details" asp-route-id="@item.Id">Details</a>
+                                            <a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Update</a>
+                                            <button class="btn btn-danger" id="delete-contact-type" value="@item.Id">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ContactType{
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '#delete-contact-type', function () {
+                var id = $(this).val();
+                var item = $(this).parent().parent();
+                $.ajax({
+                    method: "POST",
+                    url: "/adminpanel/contacttype/delete?id=" + id,
+                    success: function () {
+                        item.css("display", "none")
+                    }
+                });
+            })
+        })
+    </script>
+}

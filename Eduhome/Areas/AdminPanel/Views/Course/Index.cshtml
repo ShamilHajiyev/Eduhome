@@ -1,0 +1,65 @@
+﻿@{
+    List<Course> courses = Model;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Courses</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Image url</th>
+                                    <th>About</th>
+                                    <th>How to apply</th>
+                                    <th>Certification</th>
+                                    <th>Start date</th>
+                                    <th>Total duration</th>
+                                    <th>Class duration</th>
+                                    <th>Skill level</th>
+                                    <th>Language</th>
+                                    <th>Students</th>
+                                    <th>Assesments</th>
+                                    <th>Fee</th>
+                                    <th>Category</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in courses)
+                                {
+                                    <tr>
+                                        <th>@item.Name</th>
+                                        <th>@item.Description</th>
+                                        <th>@item.ImageUrl</th>
+                                        <th>@item.About</th>
+                                        <th>@item.HowToApply</th>
+                                        <th>@item.Certification</th>
+                                        <th>@item.StartDate</th>
+                                        <th>@item.TotalDuration</th>
+                                        <th>@item.ClassDuration</th>
+                                        <th>@item.SkillLevel</th>
+                                        <th>@item.Language</th>
+                                        <th>@item.Students</th>
+                                        <th>@item.Assesments</th>
+                                        <th>@item.Fee</th>
+                                        <th>@item.Category.Name</th>
+                                        <td>
+                                            <a class="btn btn-primary" asp-action="details" asp-route-id="@item.Id">Details</a>
+                                            <a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Update</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

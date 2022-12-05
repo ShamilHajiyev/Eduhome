@@ -1,0 +1,18 @@
+﻿@{
+    ViewCourse viewCourse = Model;
+}
+
+<section class="choose-area pb-85 pt-77">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-left-4 col-sm-8 col-md-offset-left-4">
+                <div class="choose-content text-left">
+                    <h2>@viewCourse.Title</h2>
+                    <p>@viewCourse.Description</p>
+                    <p class="choose-option">@viewCourse.ChooseOption</p>
+                    <a class="default-btn" asp-controller="course" asp-action="index">view courses</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

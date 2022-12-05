@@ -1,0 +1,12 @@
+﻿@{
+    List<InformationItem> informationItems = Model;
+}
+
+
+
+<ul>
+    @foreach (var item in informationItems)
+    {
+        <li><a href="/@item.Url">@Html.Raw(item.Name)</a></li>
+    }
+</ul>

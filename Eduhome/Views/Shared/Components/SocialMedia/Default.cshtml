@@ -1,0 +1,12 @@
+﻿@{
+    List<SocialMediaLink> socialMediaLinks = Model;
+}
+
+<div class="footer-social">
+    <ul>
+        @foreach (var item in socialMediaLinks)
+        {
+            <li><a href="@item.Link">@Html.Raw(item.Name)</a></li>
+        }
+    </ul>
+</div>

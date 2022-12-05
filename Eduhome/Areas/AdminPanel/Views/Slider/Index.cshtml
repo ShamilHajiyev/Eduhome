@@ -1,0 +1,62 @@
+﻿@{
+    List<SliderItem> sliderItems = Model;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Slider items</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Subtitle</th>
+                                    <th>Description</th>
+                                    <th>Image Url</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in sliderItems)
+                                {
+                                    <tr>
+                                        <td>@item.Title</td>
+                                        <td>@item.Subtitle</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.ImageUrl</td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-action="details" asp-route-id="@item.Id">Details</a>
+                                            <a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Update</a>
+                                            <button class="btn btn-danger" id="delete-slider-item" value="@item.Id">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Slider{
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '#delete-slider-item', function () {
+                var id = $(this).val();
+                var item = $(this).parent().parent();
+                $.ajax({
+                    method: "POST",
+                    url: "/adminpanel/slider/delete?id=" + id,
+                    success: function () {
+                        item.css("display", "none")
+                    }
+                });
+            })
+        })
+    </script>
+}

@@ -1,0 +1,10 @@
+﻿@{
+    List<UsefulLink> usefulLinks = Model;
+}
+
+<ul>
+    @foreach (var item in usefulLinks)
+    {
+        <li><a href="/@Html.Raw(item.Url)">@Html.Raw(item.Name)</a></li>
+    }
+</ul>

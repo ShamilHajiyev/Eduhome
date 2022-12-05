@@ -1,0 +1,16 @@
+﻿@{
+    ContactType contactType = Model;
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@contactType.ContactWay</h4>
+                <p>
+                    @contactType.Name
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

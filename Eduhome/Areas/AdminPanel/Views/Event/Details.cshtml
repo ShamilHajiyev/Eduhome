@@ -1,0 +1,43 @@
+﻿@{
+    Event item = Model;
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Event</h4>
+                <p>
+                    @item.Name
+                </p>
+                <p>
+                    @item.Date
+                </p>
+                <p>
+                    @item.StartTime
+                </p>
+                <p>
+                    @item.EndTime
+                </p>
+                <p>
+                    @item.Venue
+                </p>
+                <p>
+                    @item.Description
+                </p>
+                <p>
+                    @item.ImageUrl
+                </p>
+                <p>
+                    @item.Category.Name
+                </p>
+                <p>
+                    @foreach (var eventSpeaker in item.EventSpeakers)
+                    {
+                        @eventSpeaker.Speaker.Name
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

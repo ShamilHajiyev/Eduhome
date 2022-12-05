@@ -1,0 +1,47 @@
+﻿@{
+    List<Blog> blogs = Model;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Blogs</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Publish date</th>
+                                    <th>Publisher name</th>
+                                    <th>Content</th>
+                                    <th>Image url</th>
+                                    <th>Category</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in blogs)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.PublishDate</td>
+                                        <td>@item.PublisherName</td>
+                                        <td>@item.Content</td>
+                                        <td>@item.ImageUrl</td>
+                                        <td>@item.Category.Name</td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-action="details" asp-route-id="@item.Id">Details</a>
+                                            <a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Update</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
